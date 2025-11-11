@@ -72,7 +72,7 @@ try {
         if (empty($userId)) {
             respond('error', 'user_id is required');
         }
-        $stmt = $pdo->prepare("SELECT complaint_id, complaint_text, user_id, created_on FROM complaints WHERE user_id = ? ORDER BY created_on DESC");
+        $stmt = $pdo->prepare("SELECT complaint_id, complaint_text, user_id, created_on, status FROM complaints WHERE user_id = ? ORDER BY created_on DESC");
         $stmt->execute([$userId]);
         $complaints = $stmt->fetchAll(PDO::FETCH_ASSOC);
         respond('success', 'User complaints fetched successfully', $complaints);
