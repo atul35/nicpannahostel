@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Hostelapp" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorAppPrimary</item>
+        <item name="android:windowBackground">@color/activityBackground</item>
+    </style>
+</resources>

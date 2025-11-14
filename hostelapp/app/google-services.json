@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "27895250487",
+    "project_id": "hostelapppanna",
+    "storage_bucket": "hostelapppanna.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27895250487:android:85c43c84391cdf778649b2",
+        "android_client_info": {
+          "package_name": "com.nic.hostelapppanna"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0dTZt7qNigtxlLKd4xdVf6cQuF4ieJ4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

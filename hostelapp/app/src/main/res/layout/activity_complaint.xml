@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ComplaintActivity">
+
+    <TextView
+        android:id="@+id/textViewComplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complain"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewComplain">
+
+        <EditText
+            android:id="@+id/editTextComplain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="top"
+            android:hint="Write your complaint here"
+            android:inputType="textMultiLine"
+            android:maxLength="1000"
+            android:minLines="5" />
+
+        <TextView
+            android:id="@+id/char_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editTextComplain"
+            android:layout_alignBottom="@+id/editTextComplain"
+            android:padding="8dp"
+            android:text="0/1000"
+            android:textColor="@color/textColorPrimary" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/colorAppPrimary"
+        android:text="Submit"
+        android:textColor="@android:color/white" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

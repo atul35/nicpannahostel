@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAppPrimary">#832161</color>
+    <color name="activityBackground">#FFFFFF</color>
+    <color name="textColorPrimary">#832161</color>
+    <color name="iconColorPrimary">#832161</color>
+</resources>

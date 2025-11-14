@@ -1,0 +1,75 @@
+
+CREATE DATABASE IF NOT EXISTS nicpannahostel;
+
+USE nicpannahostel;
+
+-- =========================================
+-- Hostel Table
+-- =========================================
+CREATE TABLE hostel (
+    hostel_id INT AUTO_INCREMENT PRIMARY KEY,
+    hostel_name VARCHAR(100) NOT NULL,
+    hostel_location VARCHAR(150) NOT NULL
+);
+
+-- =========================================
+-- Users Table
+-- =========================================
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone_number VARCHAR(10) NOT NULL,
+    hostel_id INT,
+    role ENUM('student', 'admin', 'collectorate') NOT NULL DEFAULT 'student',
+    created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (hostel_id) REFERENCES hostel(hostel_id)
+);
+
+-- =========================================
+-- Complaints Table
+-- =========================================
+CREATE TABLE complaints (
+    complaint_id INT AUTO_INCREMENT PRIMARY KEY,
+    complaint_text TEXT NOT NULL,
+    user_id INT NOT NULL,
+    status ENUM('new', 'in_progress', 'resolved') NOT NULL DEFAULT 'new',
+    created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- =========================================
+-- Complaint Logs Table
+-- =========================================
+CREATE TABLE complaint_logs (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    complaint_id INT NOT NULL,
+    action_by INT NOT NULL,
+    action_on DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('new', 'in_progress', 'resolved') NOT NULL DEFAULT 'new',
+    remarks TEXT,
+    FOREIGN KEY (complaint_id) REFERENCES complaints(complaint_id),
+    FOREIGN KEY (action_by) REFERENCES users(user_id)
+);
+
+ALTER TABLE users
+ADD COLUMN created_by INT NULL AFTER created_on,
+ADD COLUMN updated_on DATETIME NULL AFTER created_by,
+ADD COLUMN updated_by INT NULL AFTER updated_on;
+
+ALTER TABLE users
+MODIFY COLUMN updated_on DATETIME
+    DEFAULT CURRENT_TIMESTAMP
+    ON UPDATE CURRENT_TIMESTAMP;
+
+INSERT INTO hostel (hostel_name, hostel_location)
+VALUES
+    ('Collectorate Office', 'Panna'),
+    ('Panna Boys Hostel', 'Panna District'),
+    ('Panna Girls Hostel', 'Civil Lines, Panna');
+
+INSERT INTO users (full_name, email, phone_number, hostel_id, role)
+VALUES
+    ('Atul', 'atul@example.com', '8059302024', 1, 'collectorate'),
+    ('Rahul Sharma', 'rahul@example.com', '9999999999', 2, 'student'),
+    ('Priya Verma', 'priya@example.com', '8683944258', 3, 'student');
